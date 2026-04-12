@@ -1,6 +1,6 @@
 # Harry Do — Personal Portfolio
 
-Personal portfolio and CV website for Harry Do (Nguyen Hao Do), Graduate Software Engineer based in Melbourne, Victoria.
+Personal portfolio and CV website for Harry Do (Nguyen Hao Do), Graduate/Junior Software Engineer based in Melbourne, Victoria.
 
 **Live site:** [harrydo.vercel.app](https://harrydo.vercel.app)
 
