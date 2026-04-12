@@ -1,0 +1,37 @@
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Env files
+.env
+.env.*
+.env*.local
+
+# Vercel
+.vercel/
+
+# Claude Code — never commit
+.claude/
+*.claude*
+CLAUDE.md
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Reference / design assets (not part of the app)
+*.png
+*.jpg
+*.jpeg
+!public/**
+
+# Original resume (public/ version is the one served)
+Harry\ Do_Resume.pdf
