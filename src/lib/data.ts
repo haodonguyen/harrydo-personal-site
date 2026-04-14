@@ -84,14 +84,44 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'Gesture-Based Image Manipulation',
-    stack: ['Python', 'OpenCV', 'MediaPipe'],
-    date: 'January 2025',
+    title: 'Accessibility-Friendly Mobile App',
+    stack: ['React Native', 'Firebase', 'Firestore', 'Cloud Messaging'],
+    date: 'March 2025 – Present',
     description:
-      'A real-time gesture-controlled image manipulation system using computer vision and hand landmark detection — no hardware controller required.',
+      'A cross-platform mobile application helping users find and contribute information about wheelchair-accessible locations and pathways.',
     points: [
-      'Built real-time gesture recognition using MediaPipe hand landmark detection',
-      'Implemented gesture-based crop, resize, brightness adjustment, and rotation via OpenCV',
+      'Built cross-platform UI/UX using React Native targeting both iOS and Android from a single codebase',
+      'Integrated Firebase services — Firestore for data storage, Authentication for user management, and Cloud Messaging for real-time updates on accessible locations',
+      'Achieved full-stack mobile development capabilities by combining React Native frontend with a robust Firebase backend',
+    ],
+    github: 'https://github.com/nguyenhaodo',
+    demo: null,
+    featured: false,
+  },
+  {
+    title: 'Gesture-Based Image Manipulation',
+    stack: ['Python', 'OpenCV', 'MediaPipe', 'Tkinter'],
+    date: 'August 2024 – October 2024',
+    description:
+      'A gesture-controlled image manipulation desktop application using computer vision and hand landmark detection — no hardware controller required.',
+    points: [
+      'Designed gesture recognition pipeline with MediaPipe for real-time hand landmark detection and OpenCV for image processing operations',
+      'Optimised low-latency response and accuracy by implementing neutral gesture-based termination for smoother transitions',
+      'Managed project tasks in Jira and documented progress in Confluence, applying agile methodologies throughout development',
+    ],
+    github: 'https://github.com/nguyenhaodo',
+    demo: null,
+    featured: false,
+  },
+  {
+    title: 'Groove Technology Website Clone',
+    stack: ['React.js', 'JavaScript', 'HTML5', 'CSS3'],
+    date: 'June 2024 – July 2024',
+    description:
+      'A pixel-accurate frontend replication of Groove Technology\'s website, showcasing component architecture, state management, and responsive design.',
+    points: [
+      'Replicated Groove Technology\'s website UI in React.js with accurate component architecture and responsive layouts',
+      'Translated complex web design into clean JSX/CSS, implementing interactive UI elements and responsive behaviour',
     ],
     github: 'https://github.com/nguyenhaodo',
     demo: null,
