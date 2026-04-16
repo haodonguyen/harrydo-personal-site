@@ -9,18 +9,18 @@ export const personalInfo = {
   phone: '(+61) 423 437 069',
   linkedin: 'https://linkedin.com/in/nguyenhaodo',
   github: 'https://github.com/nguyenhaodo',
-  bio: "I'm a Graduate Software Engineer based in Melbourne with a passion for building scalable, high-quality software. With hands-on internship experience in full-stack development — from AI-driven platforms to enterprise HRM systems — I bring strong TypeScript, React, and Node.js skills alongside a solid understanding of cloud infrastructure and modern DevOps practices. I thrive in collaborative environments and am always looking to push the boundaries of what's possible with technology.",
+  bio: 'Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) with hands-on experience across AI-driven SaaS and enterprise HRMS systems. Proven ability to deliver production-ready features independently, with practical experience integrating LLM and AI-driven workflows into real-world applications. Strong problem-solver and fast learner, seeking graduate or junior software engineering roles in Melbourne.',
   shortBio: 'Building modern software with TypeScript, React & Node.js.',
 }
 
 export const skills: SkillGroup[] = [
   {
     category: 'Languages',
-    items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'Scala'],
+    items: ['JavaScript', 'TypeScript', 'Python', 'Java'],
   },
   {
     category: 'Frontend',
-    items: ['React', 'Next.js', 'React Native', 'Redux', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3'],
+    items: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'HTML5', 'CSS3'],
   },
   {
     category: 'Backend & APIs',
@@ -28,15 +28,15 @@ export const skills: SkillGroup[] = [
   },
   {
     category: 'Databases',
-    items: ['PostgreSQL', 'MongoDB', 'Firebase', 'SQL', 'Redis'],
+    items: ['PostgreSQL', 'MongoDB', 'Firebase', 'Redis'],
   },
   {
     category: 'Cloud & DevOps',
-    items: ['AWS (EC2, S3, Route 53)', 'Docker', 'GitHub Actions CI/CD', 'Vercel', 'Firebase', 'Git'],
+    items: ['AWS (EC2, S3)', 'Docker', 'GitHub Actions CI/CD', 'Vercel', 'Git'],
   },
   {
     category: 'AI & Tools',
-    items: ['Claude Code', 'OpenAI API', 'GitHub Copilot', 'Cursor', 'Apollo Federation', 'Microservices'],
+    items: ['Claude Code', 'Cursor', 'GitHub Copilot', 'OpenAI API', 'Prompt Engineering'],
   },
 ]
 
@@ -47,10 +47,10 @@ export const experience: Experience[] = [
     location: 'Sydney, NSW (Remote)',
     period: 'April 2025 – October 2025',
     points: [
-      'Developed end-to-end full-stack features using TypeScript, React, and Node.js, supporting a scalable AI-driven platform',
-      'Designed and implemented REST APIs and backend services, enabling high-performance and maintainable system architecture',
-      'Built asynchronous processing pipelines (BullMQ, Redis) to improve system scalability and handle high-volume tasks',
-      'Optimised application workflows and integrated LLM-powered features, enhancing user experience and platform capability',
+      'Engineered asynchronous processing pipelines using BullMQ and Redis, reducing task latency by ~40% and enabling 3x higher throughput in a scalable system',
+      'Implemented LLM-powered features and AI agents, applying system design principles to automate workflows and improve platform efficiency',
+      'Developed full-stack features using Next.js, TypeScript, and Tailwind within an Agile/Scrum environment, collaborating through structured SDLC practices',
+      'Designed and integrated RESTful APIs and backend services, ensuring maintainability through testing, debugging, and clean code standards',
     ],
   },
   {
@@ -59,10 +59,10 @@ export const experience: Experience[] = [
     location: 'HCMC, Vietnam',
     period: 'December 2024 – March 2025',
     points: [
-      'Contributed to a large-scale enterprise HRM system using microservices architecture and GraphQL (Apollo Federation)',
-      'Developed backend services with TypeScript, Prisma, and PostgreSQL, supporting multi-tenant and scalable data models',
-      'Collaborated with engineers and stakeholders to deliver high-quality enterprise features aligned with business needs',
-      'Followed best practices in code quality, version control, and development workflows within an agile environment',
+      'Contributed to an enterprise-grade HRMS serving 200+ users across a multi-tenant architecture, developing GraphQL queries via Apollo Federation gateway and reusable UI components for core HR modules including Employee Profiles, Leave Management, and RBAC workflows',
+      'Built and enhanced backend services using TypeScript, Prisma, and PostgreSQL, ensuring high performance, scalability, and data integrity for complex enterprise processes',
+      'Quickly ramped up on a large-scale codebase within the first week, delivering production-ready GraphQL features independently under tight deadlines',
+      'Recognized by senior leadership for proactive problem-solving and effective contributions to production-grade systems',
     ],
   },
 ]
@@ -143,14 +143,14 @@ export const education: Education[] = [
     degree: 'Bachelor of Software Engineering',
     major: 'Major in Software Engineering',
     year: 'June 2023',
-    grade: '',
+    grade: 'GPA: 3.6 / 4.0',
     award: 'Fully funded scholarship (100%)',
   },
 ]
 
 export const certifications: Certification[] = [
+  { name: 'Google AI Professional Certificate', year: '2026' },
   { name: 'Claude Code in Action', year: '2026' },
-  { name: 'AI Fundamentals', year: '2026' },
   { name: 'Microsoft AI Skills: Building Agents with Copilot Studio', year: '2025' },
   { name: 'Azure DevOps Foundation', year: '2024' },
   { name: 'Google Cloud Computing Foundation', year: '2024' },
