@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 import { personalInfo } from '@/lib/data'
 
 const fadeUp = {
@@ -9,11 +10,38 @@ const fadeUp = {
 }
 
 const stats = [
-  { value: '2', label: 'Internships' },
-  { value: '81', label: 'WAM Score' },
-  { value: '5+', label: 'Certifications' },
-  { value: '2+', label: 'Projects Shipped' },
+  { value: 2,   suffix: '',  label: 'Internships'      },
+  { value: 81,  suffix: '',  label: 'WAM Score'         },
+  { value: 200, suffix: '+', label: 'Users Served'      },
+  { value: 40,  suffix: '%', label: 'Latency Reduced'   },
 ]
+
+function CountUp({ to, suffix = '', duration = 1400 }: { to: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!inView) return
+    const start = performance.now()
+    let raf: number
+    const tick = (now: number) => {
+      const elapsed = now - start
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(eased * to))
+      if (progress < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [inView, to, duration])
+
+  return (
+    <span ref={ref}>
+      {count}{suffix}
+    </span>
+  )
+}
 
 export default function About() {
   return (
@@ -75,7 +103,9 @@ export default function About() {
                   key={stat.label}
                   className="p-6 rounded-xl bg-surface border border-border"
                 >
-                  <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
+                  <p className="text-3xl font-bold text-white mb-1">
+                    <CountUp to={stat.value} suffix={stat.suffix} />
+                  </p>
                   <p className="text-text-muted text-sm">{stat.label}</p>
                 </div>
               ))}

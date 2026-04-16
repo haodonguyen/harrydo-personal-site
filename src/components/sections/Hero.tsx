@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react'
 import { personalInfo } from '@/lib/data'
+import { useState, useEffect } from 'react'
 
 const containerVariants = {
   hidden: {},
@@ -14,6 +15,43 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
+
+const roles = ['Software Engineer', 'Full-Stack Developer', 'AI Engineer']
+
+function TypewriterTitle() {
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const current = roles[roleIndex]
+
+    if (!deleting && displayed === current) {
+      const t = setTimeout(() => setDeleting(true), 1800)
+      return () => clearTimeout(t)
+    }
+
+    const t = setTimeout(() => {
+      if (!deleting) {
+        setDisplayed(current.slice(0, displayed.length + 1))
+      } else if (displayed.length === 0) {
+        setDeleting(false)
+        setRoleIndex((i) => (i + 1) % roles.length)
+      } else {
+        setDisplayed(displayed.slice(0, -1))
+      }
+    }, deleting ? 45 : 80)
+
+    return () => clearTimeout(t)
+  }, [displayed, deleting, roleIndex])
+
+  return (
+    <p className="text-xl md:text-2xl font-medium text-text-secondary mb-6 h-8 flex items-center justify-center gap-0.5">
+      <span>{displayed}</span>
+      <span className="inline-block w-[2px] h-5 bg-accent animate-pulse ml-0.5" aria-hidden />
+    </p>
+  )
 }
 
 export default function Hero() {
@@ -49,13 +87,10 @@ export default function Hero() {
           Harry Do
         </motion.h1>
 
-        {/* Title */}
-        <motion.p
-          variants={itemVariants}
-          className="text-xl md:text-2xl font-medium text-text-secondary mb-6"
-        >
-          {personalInfo.title}
-        </motion.p>
+        {/* Typewriter title */}
+        <motion.div variants={itemVariants}>
+          <TypewriterTitle />
+        </motion.div>
 
         {/* Location */}
         <motion.div
