@@ -17,7 +17,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 }
 
-const roles = ['Software Engineer', 'Full-Stack Developer', 'AI Engineer']
+const roles = ['Graduate Software Engineer', 'Full-Stack Developer', 'Junior Software Engineer']
 
 function TypewriterTitle() {
   const [roleIndex, setRoleIndex] = useState(0)
