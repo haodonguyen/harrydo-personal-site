@@ -97,7 +97,7 @@ export default function About() {
                     className="text-[9px] font-mono tracking-widest uppercase mb-3"
                     style={{ color: 'rgba(94,112,128,0.8)' }}
                   >
-                    // {card.role}
+                    {`// ${card.role}`}
                   </div>
 
                   <p className="font-serif italic text-sm text-text-muted leading-relaxed mb-4">
