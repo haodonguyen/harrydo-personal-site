@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono, Syne, Lora } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -14,17 +14,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
-const syne = Syne({
-  subsets: ['latin'],
-  variable: '--font-syne',
-  display: 'swap',
-})
-
-const lora = Lora({
-  subsets: ['latin'],
-  variable: '--font-lora',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: 'Harry Do — Graduate Software Engineer',
@@ -42,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${syne.variable} ${lora.variable} font-sans bg-background text-white antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-background text-white antialiased`}
       >
         {children}
       </body>
