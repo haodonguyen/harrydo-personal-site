@@ -22,16 +22,15 @@ export default function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.p variants={fadeUp} className="text-accent text-sm font-mono font-medium mb-3 tracking-widest uppercase">
-            Projects
-          </motion.p>
-
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold text-white mb-14 leading-tight"
-          >
-            Things I&apos;ve built
-          </motion.h2>
+          <motion.div variants={fadeUp} className="flex items-center gap-4 mb-14">
+            <span className="text-[10px] text-accent font-mono tracking-widest uppercase flex-shrink-0">
+              03 — Projects
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-display font-extrabold text-white tracking-tight leading-none">
+              Things I&apos;ve Built
+            </h2>
+            <div className="flex-1 h-px bg-border" />
+          </motion.div>
 
           {/* Featured project */}
           {featured && (
