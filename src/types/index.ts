@@ -8,7 +8,18 @@ export interface Experience {
   role: string
   location: string
   period: string
+  companyDesc?: string
   points: string[]
+  stack?: string[]
+}
+
+export interface Testimonial {
+  quote: string
+  name: string
+  role: string
+  initials: string
+  avatarStyle: 'cyan' | 'violet'
+  href?: string
 }
 
 export interface Project {

@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { experience } from '@/lib/data'
-import { Briefcase, MapPin } from 'lucide-react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -11,7 +10,7 @@ const fadeUp = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 border-t border-border">
+    <section id="experience" className="py-28 px-6 md:px-14 border-t border-border bg-surface">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -19,65 +18,91 @@ export default function Experience() {
           viewport={{ once: true, margin: '-80px' }}
           variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.p variants={fadeUp} className="text-accent text-sm font-mono font-medium mb-3 tracking-widest uppercase">
-            Work Experience
-          </motion.p>
+          {/* Section label */}
+          <motion.div variants={fadeUp} className="flex items-center gap-4 mb-14">
+            <span className="text-[10px] text-accent font-mono tracking-widest uppercase flex-shrink-0">
+              02 — Experience
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-display font-extrabold text-white tracking-tight leading-none">
+              Where I&apos;ve Worked
+            </h2>
+            <div className="flex-1 h-px bg-border" />
+          </motion.div>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold text-white mb-14 leading-tight"
-          >
-            Where I&apos;ve worked
-          </motion.h2>
-
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-border" />
-
-            <div className="space-y-12">
-              {experience.map((job, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="relative pl-8 md:pl-20"
-                >
-                  {/* Dot */}
-                  <div className="absolute left-[-4px] md:left-[20px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent ring-4 ring-background" />
-
-                  {/* Card */}
-                  <div className="p-6 md:p-8 rounded-xl bg-surface border border-border hover:border-white/10 transition-colors duration-200">
-                    {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <Briefcase size={14} className="text-accent flex-shrink-0" />
-                          <span className="text-accent text-sm font-medium">{job.company}</span>
-                        </div>
-                        <h3 className="text-white font-semibold text-lg">{job.role}</h3>
-                        <div className="flex items-center gap-1.5 mt-1 text-text-muted text-sm">
-                          <MapPin size={12} />
-                          <span>{job.location}</span>
-                        </div>
-                      </div>
-                      <span className="text-text-muted text-sm font-mono whitespace-nowrap">
-                        {job.period}
-                      </span>
-                    </div>
-
-                    {/* Bullets */}
-                    <ul className="space-y-2.5">
-                      {job.points.map((point, j) => (
-                        <li key={j} className="flex gap-3 text-text-secondary text-sm leading-relaxed">
-                          <span className="text-accent flex-shrink-0 mt-0.5">—</span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
+          {/* Experience items */}
+          <div>
+            {experience.map((job, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-10 py-12 ${
+                  i < experience.length - 1 ? 'border-b border-border' : ''
+                } ${i === 0 ? 'pt-0' : ''}`}
+              >
+                {/* Left sidebar */}
+                <div className="pt-1">
+                  {/* Company logo box */}
+                  <div
+                    className="w-11 h-11 flex items-center justify-center font-display text-[13px] font-extrabold text-accent mb-4 border border-border transition-all duration-200 hover:border-accent hover:bg-surface-2"
+                  >
+                    {job.company.slice(0, 2).toUpperCase()}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="text-[11px] text-text-muted leading-relaxed mb-1.5">
+                    {job.period.replace(' – ', '\n').split('\n').map((line, j) => (
+                      <span key={j} className="block">{line}</span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] text-text-muted">
+                    <span>📍</span>
+                    <span>{job.location}</span>
+                  </div>
+                </div>
+
+                {/* Right main */}
+                <div>
+                  <h3 className="text-[22px] font-display font-bold tracking-tight text-white mb-1 leading-tight">
+                    {job.role}
+                  </h3>
+                  <div className="text-xs text-accent tracking-widest uppercase mb-1.5">{job.company}</div>
+                  {job.companyDesc && (
+                    <p className="font-serif italic text-[13px] text-text-muted leading-relaxed mb-5">
+                      {job.companyDesc}
+                    </p>
+                  )}
+
+                  {/* Bullets */}
+                  <ul className="flex flex-col gap-3.5 mb-6">
+                    {job.points.map((point, j) => (
+                      <li key={j} className="text-sm text-text-muted leading-relaxed pl-5 relative">
+                        <span className="absolute left-0 top-[3px] text-accent text-[10px]">▸</span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: point
+                              .replace(/~40%/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↓ ~40%</span>')
+                              .replace(/3x higher throughput/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↑ 3× throughput</span>higher throughput')
+                              .replace(/200\+ users/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">200+ users</span>')
+                          }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Stack tags */}
+                  {job.stack && (
+                    <div className="flex flex-wrap gap-2">
+                      {job.stack.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[11px] text-text-muted px-2.5 py-1 border border-border hover:border-white/15 hover:text-text-secondary transition-all duration-150 tracking-wide"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

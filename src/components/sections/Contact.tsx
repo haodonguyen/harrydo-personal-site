@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Phone, MapPin } from 'lucide-react'
 import { personalInfo } from '@/lib/data'
 
 const fadeUp = {
@@ -10,94 +9,87 @@ const fadeUp = {
 }
 
 const contactLinks = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: personalInfo.email,
-    href: `mailto:${personalInfo.email}`,
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/nguyenhaodo',
-    href: personalInfo.linkedin,
-  },
-  {
-    icon: Github,
-    label: 'GitHub',
-    value: 'github.com/nguyenhaodo',
-    href: personalInfo.github,
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: personalInfo.phone,
-    href: `tel:${personalInfo.phone.replace(/\s/g, '')}`,
-  },
+  { type: 'Email',    value: personalInfo.email,                    href: `mailto:${personalInfo.email}` },
+  { type: 'LinkedIn', value: 'linkedin.com/in/nguyenhaodo',          href: personalInfo.linkedin },
+  { type: 'GitHub',   value: 'github.com/nguyenhaodo',               href: personalInfo.github },
 ]
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 border-t border-border">
+    <section id="contact" className="py-28 px-6 md:px-14 border-t border-border bg-surface">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          className="grid md:grid-cols-2 gap-16 items-center"
         >
-          <motion.p variants={fadeUp} className="text-accent text-sm font-mono font-medium mb-3 tracking-widest uppercase">
-            Contact
-          </motion.p>
+          {/* Left — big heading */}
+          <div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-display font-extrabold leading-[0.9] mb-6"
+              style={{ fontSize: 'clamp(40px, 6vw, 72px)', letterSpacing: '-3px' }}
+            >
+              <span className="block text-white">Let&apos;s</span>
+              <span
+                className="block"
+                style={{ color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}
+              >
+                Build
+              </span>
+              <span className="block text-white">
+                Something<span className="text-accent">.</span>
+              </span>
+            </motion.h2>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
-          >
-            Get in touch
-          </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="font-serif italic text-base text-text-muted leading-[1.7] mb-8 max-w-sm"
+              style={{ fontWeight: 400 }}
+            >
+              I&apos;m actively looking for{' '}
+              <strong className="text-white not-italic font-medium">graduate and junior software engineering</strong>{' '}
+              roles in Melbourne. Whether you have a role, a project, or just want to talk tech — I&apos;d love to hear from you.
+            </motion.p>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-text-secondary text-base md:text-lg max-w-xl mb-12 leading-relaxed"
-          >
-            I&apos;m actively looking for graduate and junior software engineering opportunities. Whether you have a role, a project, or just want to say hello — my inbox is open.
-          </motion.p>
+            <motion.div
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 text-[11px] text-green-400 px-3.5 py-2 border"
+              style={{
+                borderColor: 'rgba(52,211,153,0.2)',
+                background: 'rgba(52,211,153,0.05)',
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              Available to start — Melbourne, AU
+            </motion.div>
+          </div>
 
-          {/* Contact cards */}
-          <motion.div
-            variants={fadeUp}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
-          >
+          {/* Right — link list */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-px bg-border">
             {contactLinks.map((item) => (
               <a
-                key={item.label}
+                key={item.type}
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group p-5 rounded-xl bg-surface border border-border hover:border-accent/30 transition-all duration-200 flex flex-col gap-3"
+                className="group flex items-center justify-between px-5 py-4 bg-surface text-white hover:bg-surface-2 hover:pl-8 transition-all duration-200"
               >
-                <div className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                  <item.icon size={16} className="text-accent" />
-                </div>
-                <div>
-                  <p className="text-text-muted text-xs mb-0.5">{item.label}</p>
-                  <p className="text-white text-sm font-medium group-hover:text-accent transition-colors truncate">
+                <div className="flex items-center gap-4">
+                  <span className="text-[10px] text-accent tracking-widest uppercase w-14 flex-shrink-0">
+                    {item.type}
+                  </span>
+                  <span className="text-[13px] text-text-muted group-hover:text-white transition-colors">
                     {item.value}
-                  </p>
+                  </span>
                 </div>
+                <span className="text-text-muted group-hover:text-accent transition-colors text-sm">↗</span>
               </a>
             ))}
           </motion.div>
 
-          {/* Location note */}
-          <motion.div
-            variants={fadeUp}
-            className="flex items-center gap-2 text-text-muted text-sm"
-          >
-            <MapPin size={14} />
-            <span>Based in {personalInfo.location} — open to remote roles.</span>
-          </motion.div>
         </motion.div>
       </div>
     </section>

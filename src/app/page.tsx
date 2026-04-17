@@ -8,10 +8,12 @@ import Testimonial from '@/components/sections/Testimonial'
 import Projects from '@/components/sections/Projects'
 import Education from '@/components/sections/Education'
 import Contact from '@/components/sections/Contact'
+import CustomCursor from '@/components/ui/CustomCursor'
 
 export default function Home() {
   return (
     <>
+      <CustomCursor />
       <Navbar />
       <main className="overflow-hidden">
         <Hero />

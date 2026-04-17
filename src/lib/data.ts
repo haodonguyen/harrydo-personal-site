@@ -1,4 +1,4 @@
-import type { SkillGroup, Experience, Project, Education, Certification } from '@/types'
+import type { SkillGroup, Experience, Project, Education, Certification, Testimonial } from '@/types'
 
 export const personalInfo = {
   name: 'Harry Do',
@@ -11,6 +11,12 @@ export const personalInfo = {
   github: 'https://github.com/nguyenhaodo',
   bio: 'Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) with hands-on experience across AI-driven SaaS and enterprise HRMS systems. Proven ability to deliver production-ready features independently, with practical experience integrating LLM and AI-driven workflows into real-world applications. Strong problem-solver and fast learner, seeking graduate or junior software engineering roles in Melbourne.',
   shortBio: 'Building modern software with TypeScript, React & Node.js.',
+  bioParagraphs: [
+    "I'm a Software Engineering graduate based in Melbourne, and I care about one thing above all: writing code that actually gets used — production-grade, maintainable, and built with the user in mind.",
+    "Over the past year I completed two internships in very different environments. At SEEDSoft, a lean AI startup in Sydney, I owned end-to-end features in a fast-moving codebase — learning to make good decisions fast. At Groove Technology, I navigated an enterprise-grade Nx monorepo with microservices, Apollo Federation, and multi-tenant architecture — learning what \"production-grade\" truly means.",
+    "I integrate AI tooling — Claude Code, Cursor, GitHub Copilot — as a genuine part of my engineering workflow, not as a shortcut but as a force-multiplier. I've shipped LLM-powered features into real products, not just side projects.",
+    "Looking for a graduate or junior engineering role where I can contribute from day one, keep learning fast, and build things that matter.",
+  ],
 }
 
 export const skills: SkillGroup[] = [
@@ -46,24 +52,28 @@ export const experience: Experience[] = [
     role: 'Software Engineer Intern',
     location: 'Sydney, NSW (Remote)',
     period: 'April 2025 – October 2025',
+    companyDesc: 'AI-driven SaaS platform startup — small team, fast iteration, real ownership.',
     points: [
       'Engineered asynchronous processing pipelines using BullMQ and Redis, reducing task latency by ~40% and enabling 3x higher throughput in a scalable system',
       'Implemented LLM-powered features and AI agents, applying system design principles to automate workflows and improve platform efficiency',
       'Developed full-stack features using Next.js, TypeScript, and Tailwind within an Agile/Scrum environment, collaborating through structured SDLC practices',
       'Designed and integrated RESTful APIs and backend services, ensuring maintainability through testing, debugging, and clean code standards',
     ],
+    stack: ['TypeScript', 'Next.js', 'Node.js', 'BullMQ', 'Redis', 'LLM Integration', 'REST APIs', 'Agile'],
   },
   {
     company: 'Groove Technology',
     role: 'Software Developer Intern',
     location: 'HCMC, Vietnam',
     period: 'December 2024 – March 2025',
+    companyDesc: 'Enterprise tech company building a production-grade HRMS for international clients — microservices, multi-tenant architecture.',
     points: [
       'Contributed to an enterprise-grade HRMS serving 200+ users across a multi-tenant architecture, developing GraphQL queries via Apollo Federation gateway and reusable UI components for core HR modules including Employee Profiles, Leave Management, and RBAC workflows',
       'Built and enhanced backend services using TypeScript, Prisma, and PostgreSQL, ensuring high performance, scalability, and data integrity for complex enterprise processes',
       'Quickly ramped up on a large-scale codebase within the first week, delivering production-ready GraphQL features independently under tight deadlines',
       'Recognized by senior leadership for proactive problem-solving and effective contributions to production-grade systems',
     ],
+    stack: ['GraphQL', 'Apollo Federation', 'TypeScript', 'Prisma', 'PostgreSQL', 'Nx Monorepo', 'React', 'Tailwind CSS'],
   },
 ]
 
@@ -154,6 +164,24 @@ export const certifications: Certification[] = [
   { name: 'Microsoft AI Skills: Building Agents with Copilot Studio', year: '2025' },
   { name: 'Azure DevOps Foundation', year: '2024' },
   { name: 'Google Cloud Computing Foundation', year: '2024' },
+]
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: 'Harry is one of the most driven, diligent, and capable young people I have had the pleasure of knowing. He consistently delivered work well beyond his years of experience and exceeded all expectations. Just as importantly, he\'s curious, thoughtful, respectful, and easy to collaborate with. Any team would be lucky to have him.',
+    name: 'Matt Long',
+    role: 'CEO · Groove Technology',
+    initials: 'ML',
+    avatarStyle: 'cyan',
+    href: 'https://groovetechnology.com',
+  },
+  {
+    quote: 'Harry is one of the most promising junior engineers I\'ve worked with. He tackled GraphQL API development and React UI implementation with an impressive level of maturity. His technical foundation is solid, but his attitude and eagerness to learn are what truly set him apart. He will be a great addition to any engineering culture.',
+    name: 'Thinh Vo',
+    role: 'Software Engineer · Groove Technology',
+    initials: 'TV',
+    avatarStyle: 'violet',
+  },
 ]
 
 export const navLinks = [

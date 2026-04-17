@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { testimonials } from '@/lib/data'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -9,57 +10,89 @@ const fadeUp = {
 
 export default function Testimonial() {
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="testimonials" className="py-28 px-6 md:px-14 border-t border-border bg-surface">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="relative rounded-2xl border border-border bg-surface p-8 md:p-12 overflow-hidden"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
         >
-          {/* Left accent bar */}
-          <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-accent" />
+          {/* Section label */}
+          <motion.div variants={fadeUp} className="flex items-center gap-4 mb-14">
+            <span className="text-[10px] text-accent font-mono tracking-widest uppercase flex-shrink-0">
+              04 — Testimonials
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-display font-extrabold text-white tracking-tight leading-none">
+              What People Say
+            </h2>
+            <div className="flex-1 h-px bg-border" />
+          </motion.div>
 
-          {/* Large decorative quote mark */}
-          <span
-            className="absolute top-4 right-8 text-[8rem] leading-none font-serif text-accent/10 select-none pointer-events-none"
-            aria-hidden="true"
+          {/* Two-column grid */}
+          <motion.div
+            variants={fadeUp}
+            className="grid md:grid-cols-2 gap-px bg-border"
           >
-            &ldquo;
-          </span>
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="relative bg-surface p-10 flex flex-col gap-5 overflow-hidden hover:bg-surface-2 transition-colors duration-200"
+              >
+                {/* Decorative large quote */}
+                <span
+                  className="absolute top-[-16px] right-6 font-display font-extrabold leading-none pointer-events-none select-none"
+                  style={{ fontSize: '120px', color: 'rgba(0,212,255,0.04)' }}
+                  aria-hidden
+                >
+                  &ldquo;
+                </span>
 
-          <div className="relative">
-            {/* Quote */}
-            <blockquote className="text-xl md:text-2xl text-white/90 italic leading-relaxed font-light mb-8">
-              &ldquo;Harry is a resourceful problem solver&hellip; exceptionally well-rounded for
-              someone at the start of his career and would make him a welcome and valuable
-              contributor in any workplace environment.&rdquo;
-            </blockquote>
+                {/* Stars */}
+                <div className="text-gold text-xs tracking-[3px]">★★★★★</div>
 
-            {/* Attribution */}
-            <div className="flex items-center gap-4">
-              {/* Initials avatar */}
-              <div className="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
-                <span className="text-accent text-sm font-semibold tracking-wide">ML</span>
-              </div>
+                {/* Quote */}
+                <blockquote className="font-serif italic text-[15px] text-text-muted leading-[1.75] flex-1">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
 
-              <div>
-                <p className="text-white font-semibold text-sm">Matt Long</p>
-                <p className="text-text-muted text-sm">
-                  Chief Executive Officer&nbsp;&mdash;&nbsp;
-                  <a
-                    href="https://groovetechnology.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:text-accent-hover transition-colors"
+                {/* Footer */}
+                <div className="flex items-center gap-3 pt-5 border-t border-border">
+                  <div
+                    className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-display text-[13px] font-extrabold"
+                    style={
+                      t.avatarStyle === 'cyan'
+                        ? { background: 'linear-gradient(135deg, #00d4ff, #0096b3)', color: '#06080b' }
+                        : { background: 'linear-gradient(135deg, #7c3aed, #9333ea)', color: '#fff' }
+                    }
                   >
-                    Groove Technology
-                  </a>
-                </p>
+                    {t.initials}
+                  </div>
+                  <div className="flex-1">
+                    <span className="block text-[13px] font-medium text-white">{t.name}</span>
+                    <span className="block text-[11px] text-text-muted mt-0.5">
+                      {t.href ? (
+                        <a
+                          href={t.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-accent transition-colors"
+                        >
+                          {t.role}
+                        </a>
+                      ) : (
+                        t.role
+                      )}
+                    </span>
+                  </div>
+                  <div className="text-[10px] text-green-400 flex items-center gap-1 tracking-wider">
+                    <span>✓</span>
+                    <span>Verified</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -1,25 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react'
-import { personalInfo } from '@/lib/data'
 import { useState, useEffect } from 'react'
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
+import { personalInfo } from '@/lib/data'
 
 const roles = ['Graduate Software Engineer', 'Full-Stack Developer', 'Junior Software Engineer']
 
-function TypewriterTitle() {
+function TypewriterRole() {
   const [roleIndex, setRoleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
@@ -47,138 +34,199 @@ function TypewriterTitle() {
   }, [displayed, deleting, roleIndex])
 
   return (
-    <p className="text-xl md:text-2xl font-medium text-text-secondary mb-6 h-8 flex items-center justify-center gap-0.5">
+    <div className="text-accent text-xs font-mono font-medium mb-6 tracking-widest uppercase flex items-center gap-0.5 h-5">
       <span>{displayed}</span>
-      <span className="inline-block w-[2px] h-5 bg-accent animate-pulse ml-0.5" aria-hidden />
-    </p>
+      <span className="inline-block w-[2px] h-3.5 bg-accent animate-pulse ml-0.5" aria-hidden />
+    </div>
   )
 }
 
+const heroStats = [
+  { value: '81', accent: '/100', label: 'WAM Score',       ctx: 'La Trobe · High Achiever Scholar' },
+  { value: '2',  accent: '',     label: 'Internships',     ctx: 'AI SaaS + Enterprise tech' },
+  { value: '7',  accent: '+',    label: 'Certifications',  ctx: 'Google · Anthropic · Microsoft' },
+  { value: '1',  accent: 'yr',   label: 'Prod Experience', ctx: 'End-to-end · Shipped features' },
+]
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden">
-      {/* Background radial glow — subtle only */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center px-6 md:px-14 pt-20 pb-16 overflow-hidden"
+    >
+      {/* Grid background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+        }}
       >
-        <div className="w-[800px] h-[500px] rounded-full bg-accent/[0.04] blur-[140px]" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, #06080b 100%)' }}
+        />
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-4xl mx-auto text-center"
-      >
-        {/* Available badge */}
-        <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface border border-border text-sm text-text-secondary">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Open to new opportunities
+      {/* Scanlines */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.012) 2px, rgba(0,212,255,0.012) 4px)',
+        }}
+      />
+
+      {/* Right glow orb */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-200px] top-1/2 -translate-y-1/2 w-[700px] h-[700px] animate-glow-pulse"
+        style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
+
+        {/* Status pill + location */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex items-center gap-3 mb-6 flex-wrap"
+        >
+          <div
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-green-400"
+            style={{ border: '1px solid rgba(52,211,153,0.25)', background: 'rgba(52,211,153,0.05)' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            Open to work
+          </div>
+          <span className="text-text-muted text-xs tracking-widest uppercase">
+            {personalInfo.location} · Australia
           </span>
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-4 leading-none"
+        {/* Typewriter role */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Harry Do
+          <TypewriterRole />
+        </motion.div>
+
+        {/* Name — split style */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="font-display mb-8 leading-none"
+          style={{ fontSize: 'clamp(64px, 10vw, 130px)', fontWeight: 800, letterSpacing: '-4px' }}
+        >
+          <span className="block text-white">Harry</span>
+          <span
+            className="block text-transparent transition-all duration-300 hover:[--stroke-color:rgba(0,212,255,0.5)]"
+            style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.2)' }}
+          >
+            Do.
+          </span>
         </motion.h1>
 
-        {/* Typewriter title */}
-        <motion.div variants={itemVariants}>
-          <TypewriterTitle />
-        </motion.div>
-
-        {/* Location */}
+        {/* Descriptor */}
         <motion.div
-          variants={itemVariants}
-          className="flex items-center justify-center gap-2 text-text-muted text-sm mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+          className="flex items-baseline gap-4 mb-10"
         >
-          <MapPin size={14} />
-          <span>{personalInfo.location}</span>
+          <div className="w-10 h-px bg-text-muted flex-shrink-0" />
+          <p
+            className="font-serif italic text-lg text-text-muted leading-relaxed max-w-lg"
+            style={{ fontWeight: 400 }}
+          >
+            I build software that{' '}
+            <em className="text-white not-italic font-medium">ships to production</em> —
+            full-stack features, scalable backend systems, and{' '}
+            <em className="text-white not-italic font-medium">AI-integrated workflows</em>{' '}
+            that solve real problems.
+          </p>
         </motion.div>
 
-        {/* Bio */}
-        <motion.p
-          variants={itemVariants}
-          className="max-w-xl mx-auto text-text-secondary text-base leading-loose mb-10"
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="flex flex-wrap border border-border w-fit mb-12"
         >
-          Full-stack engineer with internship experience at AI-driven startups and enterprise tech companies.
-          Passionate about building clean, scalable software with{' '}
-          <span className="text-white font-medium">TypeScript, React,</span> and{' '}
-          <span className="text-white font-medium">Node.js</span>.
-        </motion.p>
+          {heroStats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`px-6 py-4 flex flex-col gap-1 hover:bg-surface transition-colors duration-200 relative group ${
+                i < heroStats.length - 1 ? 'border-r border-border' : ''
+              }`}
+            >
+              {/* Cyan underline on hover */}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div
+                className="text-2xl font-bold text-white leading-none font-display"
+                style={{ letterSpacing: '-1px' }}
+              >
+                {s.value}
+                <span className="text-accent">{s.accent}</span>
+              </div>
+              <div className="text-[10px] text-text-muted uppercase tracking-widest">{s.label}</div>
+              <div className="text-[10px] text-text-muted/60">{s.ctx}</div>
+            </div>
+          ))}
+        </motion.div>
 
         {/* CTAs */}
         <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.75 }}
+          className="flex flex-col sm:flex-row gap-4"
         >
           <a
             href="#projects"
-            className="px-6 py-3 rounded-lg bg-accent hover:bg-accent-hover text-white font-medium text-sm transition-colors duration-200 w-full sm:w-auto text-center"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-accent text-background text-xs font-medium tracking-widest uppercase hover:shadow-[0_8px_32px_rgba(0,212,255,0.3)] hover:-translate-y-0.5 transition-all duration-200"
           >
-            View Projects
+            View My Work →
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/10 text-white text-xs font-medium tracking-widest uppercase hover:border-accent/40 hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Let&apos;s Talk
           </a>
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg bg-surface border border-border hover:border-white/20 text-white font-medium text-sm transition-colors duration-200 w-full sm:w-auto text-center"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/10 text-white text-xs font-medium tracking-widest uppercase hover:border-accent/40 hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
           >
-            Download CV
+            Resume ↗
           </a>
         </motion.div>
 
-        {/* Social links */}
-        <motion.div
-          variants={itemVariants}
-          className="flex items-center justify-center gap-5"
-        >
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-text-muted hover:text-white transition-colors"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-text-muted hover:text-white transition-colors"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            aria-label="Email"
-            className="text-text-muted hover:text-white transition-colors"
-          >
-            <Mail size={20} />
-          </a>
-        </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Scroll cue */}
+      {/* Scroll hint — bottom right */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted"
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-9 right-14 hidden md:flex items-center gap-3 text-[10px] text-text-muted tracking-widest uppercase"
       >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        >
-          <ArrowDown size={18} />
-        </motion.div>
+        <div className="w-10 h-px bg-text-muted/30 relative overflow-hidden">
+          <div className="absolute top-0 h-full w-2/5 bg-accent animate-scan-right" />
+        </div>
+        scroll
       </motion.div>
     </section>
   )

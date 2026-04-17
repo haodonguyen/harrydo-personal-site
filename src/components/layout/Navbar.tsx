@@ -38,50 +38,54 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border'
+          ? 'bg-background/85 backdrop-blur-2xl border-b border-border'
           : 'bg-transparent'
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 md:px-14 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="group flex items-center gap-1">
-          <span className="text-white font-bold text-xl tracking-tight">HD</span>
-          <span className="text-accent text-2xl font-bold leading-none -mt-1">.</span>
+        <a href="#" className="flex items-center gap-1.5 font-display text-base font-extrabold tracking-tight text-white">
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-accent"
+            style={{ animation: 'blink 3s ease infinite' }}
+          />
+          Harry Do
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-7 list-none">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'text-sm transition-colors duration-200 py-1',
-                activeSection === link.href.slice(1)
-                  ? 'text-white font-medium'
-                  : 'text-text-muted hover:text-text-secondary font-normal'
-              )}
-            >
-              {link.label}
-            </a>
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={cn(
+                  'text-[11px] font-medium tracking-widest uppercase transition-colors duration-200',
+                  activeSection === link.href.slice(1)
+                    ? 'text-accent'
+                    : 'text-text-muted hover:text-white'
+                )}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Resume CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center">
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors duration-200"
+            className="text-[11px] font-medium tracking-widest uppercase px-[18px] py-[9px] border border-white/15 text-white hover:border-accent hover:text-accent transition-all duration-200"
           >
-            Resume
+            Resume ↗
           </a>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-text-secondary hover:text-white transition-colors p-1"
+          className="md:hidden text-text-muted hover:text-white transition-colors p-1"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation"
         >
@@ -97,7 +101,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-border bg-surface/95 backdrop-blur-xl overflow-hidden"
+            className="md:hidden border-b border-border bg-surface/95 backdrop-blur-2xl overflow-hidden"
           >
             <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -105,7 +109,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-text-secondary hover:text-white transition-colors py-1 text-sm font-medium"
+                  className="text-text-muted hover:text-accent transition-colors py-1 text-[11px] font-medium tracking-widest uppercase"
                 >
                   {link.label}
                 </a>
@@ -114,14 +118,18 @@ export default function Navbar() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 text-sm font-medium px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors text-center"
+                className="mt-2 text-[11px] font-medium px-4 py-2.5 border border-white/15 text-white hover:border-accent hover:text-accent transition-all text-center tracking-widest uppercase"
               >
-                Resume
+                Resume ↗
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        @keyframes blink { 0%, 90%, 100% { opacity: 1 } 95% { opacity: 0 } }
+      `}</style>
     </motion.nav>
   )
 }
