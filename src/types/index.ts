@@ -8,6 +8,7 @@ export interface Experience {
   role: string
   location: string
   period: string
+  duration?: string
   companyDesc?: string
   points: string[]
   stack?: string[]

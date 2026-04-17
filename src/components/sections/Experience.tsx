@@ -48,9 +48,12 @@ export default function Experience() {
                     {job.company.slice(0, 2).toUpperCase()}
                   </div>
                   <div className="text-[11px] text-text-muted leading-relaxed mb-1.5">
-                    {job.period.replace(' – ', '\n').split('\n').map((line, j) => (
+                    {job.period.split(' – ').map((line, j) => (
                       <span key={j} className="block">{line}</span>
                     ))}
+                    {job.duration && (
+                      <span className="block mt-0.5">{job.duration}</span>
+                    )}
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-text-muted">
                     <span>📍</span>
@@ -73,13 +76,13 @@ export default function Experience() {
                   {/* Bullets */}
                   <ul className="flex flex-col gap-3.5 mb-6">
                     {job.points.map((point, j) => (
-                      <li key={j} className="text-sm text-text-muted leading-relaxed pl-5 relative">
+                      <li key={j} className="text-sm text-text-muted leading-relaxed pl-5 relative [&_strong]:text-white [&_strong]:font-medium">
                         <span className="absolute left-0 top-[3px] text-accent text-[10px]">▸</span>
                         <span
                           dangerouslySetInnerHTML={{
                             __html: point
-                              .replace(/~40%/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↓ ~40%</span>')
-                              .replace(/3x higher throughput/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↑ 3× throughput</span>higher throughput')
+                              .replace(/↓ ~40%/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↓ ~40%</span>')
+                              .replace(/↑ 3× throughput/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↑ 3× throughput</span>')
                               .replace(/200\+ users/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">200+ users</span>')
                           }}
                         />
