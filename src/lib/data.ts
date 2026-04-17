@@ -9,7 +9,7 @@ export const personalInfo = {
   phone: '(+61) 423 437 069',
   linkedin: 'https://linkedin.com/in/nguyenhaodo',
   github: 'https://github.com/nguyenhaodo',
-  bio: 'Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) with hands-on experience across AI-driven SaaS and enterprise HRMS systems. Proven ability to deliver production-ready features independently, with practical experience integrating LLM and AI-driven workflows into real-world applications. Strong problem-solver and fast learner, seeking graduate or junior software engineering roles in Melbourne.',
+  bio: 'Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) with hands-on experience across AI-driven SaaS and enterprise HRMS systems. Proven ability to deliver production-ready features independently, with practical experience integrating LLM and AI-driven workflows into real-world applications. Strong problem-solver and fast learner, seeking graduate or junior software engineering roles across Australia.',
   shortBio: 'Building modern software with TypeScript, React & Node.js.',
   bioParagraphs: [
     "I'm a Software Engineering graduate based in Melbourne, and I care about one thing above all: writing code that actually gets used — production-grade, maintainable, and built with the user in mind.",

@@ -51,7 +51,7 @@ export default function Contact() {
             >
               I&apos;m actively looking for{' '}
               <strong className="text-white not-italic font-medium">graduate and junior software engineering</strong>{' '}
-              roles in Melbourne. Whether you have a role, a project, or just want to talk tech — I&apos;d love to hear from you.
+              roles across Australia. Whether you have a role, a project, or just want to talk tech — I&apos;d love to hear from you.
             </motion.p>
 
             <motion.div
@@ -63,7 +63,7 @@ export default function Contact() {
               }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              Available to start — Melbourne, AU
+              Available to start — Open to Australia-wide
             </motion.div>
           </div>
 

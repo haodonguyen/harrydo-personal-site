@@ -103,11 +103,8 @@ export default function Hero() {
             style={{ border: '1px solid rgba(52,211,153,0.25)', background: 'rgba(52,211,153,0.05)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Open to work
+            Open to work · Australia-wide
           </div>
-          <span className="text-text-muted text-xs tracking-widest uppercase">
-            {personalInfo.location} · Australia
-          </span>
         </motion.div>
 
         {/* Typewriter role */}
