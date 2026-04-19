@@ -44,15 +44,15 @@ export default function Experience() {
                 <div className="pt-1">
                   {/* Company logo box */}
                   <div
-                    className="w-11 h-11 flex items-center justify-center font-display text-[13px] font-extrabold text-accent mb-4 border border-border transition-all duration-200 hover:border-accent hover:bg-surface-2 overflow-hidden"
+                    className="w-16 h-16 flex items-center justify-center font-display text-[13px] font-extrabold text-accent mb-4 border border-border transition-all duration-200 hover:border-accent hover:bg-surface-2"
                   >
                     {job.logo ? (
                       <Image
                         src={job.logo}
                         alt={job.company}
-                        width={44}
-                        height={44}
-                        className="object-contain p-1"
+                        width={48}
+                        height={48}
+                        className="object-contain p-2"
                       />
                     ) : (
                       job.company.slice(0, 2).toUpperCase()
