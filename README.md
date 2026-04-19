@@ -1,87 +1,48 @@
-# harrydo.dev — Personal Portfolio
+<p align="center">
+  <img src="/public/images/seedsoft-logo.png" width="40" alt="Logo" />
+</p>
+<h1 align="center">Harry Do — Personal Portfolio</h1>
 
-> A fast, modern portfolio built to get me hired. Clean design, real projects, zero fluff.
+[![Site preview](/public/site-preview.png)](https://harrydo-personal-site.vercel.app)
 
-[![Live](https://img.shields.io/badge/Live-harrydo.dev-blue?style=flat-square&logo=vercel)](https://harrydo-personal-site.vercel.app)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
+My personal portfolio to showcase my experience, projects, and background as a Software Engineering graduate. Built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://harrydo-personal-site.vercel.app).
 
----
+## Install & run
 
-## Overview
-
-Single-page portfolio for **Harry Do** — Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) seeking graduate/junior engineering roles across Australia.
-
-Sections: Hero → About → Experience → Projects → Testimonials → Education → Contact
-
----
-
-## Tech Stack
-
-| Layer | Tech |
-|---|---|
-| Framework | Next.js 14 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS |
-| Animations | Framer Motion |
-| Icons | Lucide React |
-| Fonts | Inter + JetBrains Mono |
-| Deployment | Vercel |
-
----
-
-## Features
-
-- **Single-page SPA** — smooth scroll with active nav highlight
-- **Framer Motion animations** — scroll-triggered fade-ups, stagger children
-- **Metric badges** — inline callouts for quantified achievements (↓ ~20% latency, ↑ 3× throughput)
-- **Optimized images** — `next/image` with WebP + lazy loading
-- **Downloadable resume** — always in sync with site content
-- **Fully responsive** — mobile-first, tested across breakpoints
-
----
-
-## Project Structure
-
-```
-src/
-  app/
-    layout.tsx        # Root layout, fonts, metadata
-    page.tsx          # Single page — all sections
-    globals.css       # Tailwind base + CSS vars
-  components/
-    layout/           # Navbar, Footer
-    sections/         # Hero, About, Experience, Projects, Testimonial, Education, Contact
-    ui/               # CustomCursor, reusable primitives
-  lib/
-    data.ts           # All CV content (single source of truth)
-  types/
-    index.ts          # Shared TypeScript interfaces
-public/
-  images/             # Company logos, profile photo
-  resume.pdf          # Downloadable CV
-```
-
----
-
-## Getting Started
+Make sure you have Node.js `18.0.0` or higher and npm `9.0.0` or higher installed. Install dependencies with:
 
 ```bash
 npm install
-npm run dev       # http://localhost:3000
-npm run build     # Production build
-npm run lint      # ESLint
 ```
 
----
+Once it's done, start up a local server with:
 
-## Content Updates
+```bash
+npm run dev
+```
 
-All personal data lives in [`src/lib/data.ts`](src/lib/data.ts) — edit there and changes propagate across the entire site automatically.
+To run a production build:
 
----
+```bash
+npm run build
+```
 
-## License
+## Deployment
 
-MIT — feel free to fork and adapt for your own portfolio.
+The site is deployed on Vercel via GitHub integration — every push to `main` triggers an automatic deployment.
+
+## Content updates
+
+All personal data (experience, projects, education, testimonials) lives in a single file:
+
+```
+src/lib/data.ts
+```
+
+Edit there and changes propagate across the entire site automatically — no need to touch any component files.
+
+## Permissions
+
+You're welcome to use the code or adapt it for your own portfolio. I'd encourage you to make it your own by modifying the design, content, and components.
+
+Please do not present any of my projects, experience, or written content as your own.
