@@ -68,6 +68,7 @@ export const experience: Experience[] = [
     location: 'Ho Chi Minh City',
     period: 'Dec 2024 – Mar 2025',
     duration: '· 4 months',
+    logo: '/images/groove-logo.png',
     companyDesc: 'Enterprise tech company building a production-grade HRMS for international clients — microservices, multi-tenant architecture, large-scale codebase.',
     points: [
       'Contributed to an enterprise HRMS serving 200+ users across a <strong>multi-tenant architecture</strong> — developed GraphQL queries via <strong>Apollo Federation gateway</strong> and reusable UI components for Employee Profiles, Leave Management, and RBAC workflows',

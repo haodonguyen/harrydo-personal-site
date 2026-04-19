@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { experience } from '@/lib/data'
 
@@ -43,9 +44,19 @@ export default function Experience() {
                 <div className="pt-1">
                   {/* Company logo box */}
                   <div
-                    className="w-11 h-11 flex items-center justify-center font-display text-[13px] font-extrabold text-accent mb-4 border border-border transition-all duration-200 hover:border-accent hover:bg-surface-2"
+                    className="w-11 h-11 flex items-center justify-center font-display text-[13px] font-extrabold text-accent mb-4 border border-border transition-all duration-200 hover:border-accent hover:bg-surface-2 overflow-hidden"
                   >
-                    {job.company.slice(0, 2).toUpperCase()}
+                    {job.logo ? (
+                      <Image
+                        src={job.logo}
+                        alt={job.company}
+                        width={44}
+                        height={44}
+                        className="object-contain p-1"
+                      />
+                    ) : (
+                      job.company.slice(0, 2).toUpperCase()
+                    )}
                   </div>
                   <div className="text-[11px] text-text-muted leading-relaxed mb-1.5">
                     {job.period.split(' – ').map((line, j) => (

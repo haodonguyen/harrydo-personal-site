@@ -9,6 +9,7 @@ export interface Experience {
   location: string
   period: string
   duration?: string
+  logo?: string
   companyDesc?: string
   points: string[]
   stack?: string[]
