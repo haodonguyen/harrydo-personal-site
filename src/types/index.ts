@@ -20,7 +20,7 @@ export interface Testimonial {
   name: string
   role: string
   initials: string
-  avatarStyle: 'cyan' | 'violet'
+  avatarStyle: 'cyan' | 'violet' | 'emerald'
   href?: string
 }
 

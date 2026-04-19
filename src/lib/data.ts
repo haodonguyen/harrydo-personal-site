@@ -186,6 +186,13 @@ export const testimonials: Testimonial[] = [
     initials: 'TV',
     avatarStyle: 'violet',
   },
+  {
+    quote: 'Harry is a talented and hardworking full-stack Intern by the time he was at Groove. He contributed to our development team with high-quality code and a positive, \'can-do\' attitude. Beyond the technical skills, Harry is a great communicator who integrates feedback quickly and contributes meaningfully to team discussions, possess the curiosity required to excel in a fast-paced environment. I\'m confident he will be a strong asset to any engineering team he joins.',
+    name: 'Duc Hong Quach',
+    role: 'Senior Frontend Developer · Groove Technology',
+    initials: 'DH',
+    avatarStyle: 'emerald',
+  },
 ]
 
 export const navLinks = [

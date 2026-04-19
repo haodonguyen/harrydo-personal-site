@@ -63,6 +63,8 @@ export default function Testimonial() {
                     style={
                       t.avatarStyle === 'cyan'
                         ? { background: 'linear-gradient(135deg, #00d4ff, #0096b3)', color: '#06080b' }
+                        : t.avatarStyle === 'emerald'
+                        ? { background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff' }
                         : { background: 'linear-gradient(135deg, #7c3aed, #9333ea)', color: '#fff' }
                     }
                   >
