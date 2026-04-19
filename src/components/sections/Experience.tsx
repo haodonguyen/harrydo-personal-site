@@ -92,7 +92,7 @@ export default function Experience() {
                         <span
                           dangerouslySetInnerHTML={{
                             __html: point
-                              .replace(/↓ ~40%/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↓ ~40%</span>')
+                              .replace(/↓ ~20%/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↓ ~20%</span>')
                               .replace(/↑ 3× throughput/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">↑ 3× throughput</span>')
                               .replace(/200\+ users/g, '<span class="inline-flex items-center gap-1 font-mono text-[12px] text-green-400 px-1.5 py-0.5 mx-0.5" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2)">200+ users</span>')
                           }}

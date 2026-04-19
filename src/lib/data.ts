@@ -56,7 +56,7 @@ export const experience: Experience[] = [
     logo: '/images/seedsoft-logo.png',
     companyDesc: 'AI-driven SaaS platform startup — small team, fast iteration, real ownership.',
     points: [
-      'Diagnosed a task queue bottleneck and re-architected the pipeline using <strong>BullMQ and Redis</strong> — reducing processing latency by ↓ ~40% and enabling ↑ 3× throughput under peak load',
+      'Diagnosed a task queue bottleneck and re-architected the pipeline using <strong>BullMQ and Redis</strong> — reducing processing latency by ↓ ~20% and enabling ↑ 3× throughput under peak load',
       'Integrated <strong>LLM-powered features and AI agents</strong> directly into the product, applying system design thinking to automate repetitive platform workflows — shipped to production, used by real users',
       'Developed <strong>full-stack features end-to-end</strong> using Next.js, TypeScript, and Tailwind within an Agile/Scrum environment, collaborating closely with product and design through structured SDLC practices',
       'Designed and maintained <strong>RESTful APIs and backend services</strong>, writing tests and enforcing clean code standards across the codebase',
