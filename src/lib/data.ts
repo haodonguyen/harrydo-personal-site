@@ -53,6 +53,7 @@ export const experience: Experience[] = [
     location: 'Sydney (Remote)',
     period: 'Apr 2025 – Oct 2025',
     duration: '· 7 months',
+    logo: '/images/seedsoft-logo.png',
     companyDesc: 'AI-driven SaaS platform startup — small team, fast iteration, real ownership.',
     points: [
       'Diagnosed a task queue bottleneck and re-architected the pipeline using <strong>BullMQ and Redis</strong> — reducing processing latency by ↓ ~40% and enabling ↑ 3× throughput under peak load',
