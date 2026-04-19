@@ -1,74 +1,87 @@
-# Harry Do — Personal Portfolio
+# harrydo.dev — Personal Portfolio
 
-Personal portfolio and CV website for Harry Do (Nguyen Hao Do), Graduate/Junior Software Engineer based in Melbourne, Victoria.
+> A fast, modern portfolio built to get me hired. Clean design, real projects, zero fluff.
 
-**Live site:** [harrydo.vercel.app](https://harrydo.vercel.app)
+[![Live](https://img.shields.io/badge/Live-harrydo.dev-blue?style=flat-square&logo=vercel)](https://harrydo-personal-site.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
+
+---
+
+## Overview
+
+Single-page portfolio for **Harry Do** — Software Engineering graduate (WAM 81/100, La Trobe High Achiever Scholar) seeking graduate/junior engineering roles across Australia.
+
+Sections: Hero → About → Experience → Projects → Testimonials → Education → Contact
 
 ---
 
 ## Tech Stack
 
-- **Framework** — [Next.js 14](https://nextjs.org) (App Router)
-- **Language** — TypeScript
-- **Styling** — [Tailwind CSS](https://tailwindcss.com)
-- **Animations** — [Framer Motion](https://www.framer.com/motion)
-- **Icons** — [Lucide React](https://lucide.dev)
-- **Deployment** — [Vercel](https://vercel.com)
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| Fonts | Inter + JetBrains Mono |
+| Deployment | Vercel |
 
-## Sections
+---
 
-- **Hero** — Name, title, availability status, CTA buttons
-- **About** — Bio and quick stats
-- **Skills** — Tech stack grouped by category
-- **Experience** — Work history (SEEDSoft, Groove Technology)
-- **Projects** — Personal projects with stack and links
-- **Education** — Degrees and certifications
-- **Contact** — Email, LinkedIn, GitHub, phone
+## Features
 
-## Getting Started
+- **Single-page SPA** — smooth scroll with active nav highlight
+- **Framer Motion animations** — scroll-triggered fade-ups, stagger children
+- **Metric badges** — inline callouts for quantified achievements (↓ ~20% latency, ↑ 3× throughput)
+- **Optimized images** — `next/image` with WebP + lazy loading
+- **Downloadable resume** — always in sync with site content
+- **Fully responsive** — mobile-first, tested across breakpoints
 
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
 
 ## Project Structure
 
 ```
 src/
-├── app/              # Root layout, page, global styles
-├── components/
-│   ├── layout/       # Navbar, Footer
-│   └── sections/     # One component per page section
-├── lib/
-│   ├── data.ts       # All CV content — edit here to update the site
-│   └── utils.ts
-└── types/            # Shared TypeScript types
+  app/
+    layout.tsx        # Root layout, fonts, metadata
+    page.tsx          # Single page — all sections
+    globals.css       # Tailwind base + CSS vars
+  components/
+    layout/           # Navbar, Footer
+    sections/         # Hero, About, Experience, Projects, Testimonial, Education, Contact
+    ui/               # CustomCursor, reusable primitives
+  lib/
+    data.ts           # All CV content (single source of truth)
+  types/
+    index.ts          # Shared TypeScript interfaces
 public/
-└── resume.pdf        # Downloadable CV
+  images/             # Company logos, profile photo
+  resume.pdf          # Downloadable CV
 ```
 
-## Updating Content
+---
 
-All personal data lives in [`src/lib/data.ts`](src/lib/data.ts) — update that single file to change anything on the site (bio, experience, projects, skills, etc.).
-
-## Deployment
-
-Linked to Vercel — every push to `main` triggers an automatic deployment.
-
-To deploy manually:
+## Getting Started
 
 ```bash
-vercel --prod
+npm install
+npm run dev       # http://localhost:3000
+npm run build     # Production build
+npm run lint      # ESLint
 ```
 
-## Contact
+---
 
-- **Email** — nguyenhao.do@gmail.com
-- **LinkedIn** — [linkedin.com/in/nguyenhaodo](https://linkedin.com/in/nguyenhaodo)
-- **GitHub** — [github.com/haodonguyen](https://github.com/haodonguyen)
+## Content Updates
+
+All personal data lives in [`src/lib/data.ts`](src/lib/data.ts) — edit there and changes propagate across the entire site automatically.
+
+---
+
+## License
+
+MIT — feel free to fork and adapt for your own portfolio.
