@@ -94,7 +94,7 @@ export const projects: Project[] = [
       'Deployed to production using GitHub Actions CI/CD pipelines and Vercel for automated builds',
     ],
     github: 'https://github.com/haodonguyen',
-    demo: null,
+    demo: 'https://expense-tracker-lake-pi.vercel.app/',
     featured: true,
   },
   {
