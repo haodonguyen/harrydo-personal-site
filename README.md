@@ -1,48 +1,74 @@
-<p align="center">
-  <img src="/public/images/seedsoft-logo.png" width="40" alt="Logo" />
-</p>
-<h1 align="center">Harry Do — Personal Portfolio</h1>
+# Harry Do — Personal Portfolio
 
-[![Site preview](/public/site-preview.png)](https://harrydo-personal-site.vercel.app)
+Personal portfolio and CV website for Harry Do (Nguyen Hao Do), Graduate Software Engineer based in Melbourne, Victoria.
 
-My personal portfolio to showcase my experience, projects, and background as a Software Engineering graduate. Built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://harrydo-personal-site.vercel.app).
+**Live site:** [harrydo.vercel.app](https://harrydo.vercel.app)
 
-## Install & run
+---
 
-Make sure you have Node.js `18.0.0` or higher and npm `9.0.0` or higher installed. Install dependencies with:
+## Tech Stack
+
+- **Framework** — [Next.js 14](https://nextjs.org) (App Router)
+- **Language** — TypeScript
+- **Styling** — [Tailwind CSS](https://tailwindcss.com)
+- **Animations** — [Framer Motion](https://www.framer.com/motion)
+- **Icons** — [Lucide React](https://lucide.dev)
+- **Deployment** — [Vercel](https://vercel.com)
+
+## Sections
+
+- **Hero** — Name, title, availability status, CTA buttons
+- **About** — Bio and quick stats
+- **Skills** — Tech stack grouped by category
+- **Experience** — Work history (SEEDSoft, Groove Technology)
+- **Projects** — Personal projects with stack and links
+- **Education** — Degrees and certifications
+- **Contact** — Email, LinkedIn, GitHub, phone
+
+## Getting Started
 
 ```bash
+# Install dependencies
 npm install
-```
 
-Once it's done, start up a local server with:
-
-```bash
+# Start dev server
 npm run dev
 ```
 
-To run a production build:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-npm run build
+## Project Structure
+
 ```
+src/
+├── app/              # Root layout, page, global styles
+├── components/
+│   ├── layout/       # Navbar, Footer
+│   └── sections/     # One component per page section
+├── lib/
+│   ├── data.ts       # All CV content — edit here to update the site
+│   └── utils.ts
+└── types/            # Shared TypeScript types
+public/
+└── resume.pdf        # Downloadable CV
+```
+
+## Updating Content
+
+All personal data lives in [`src/lib/data.ts`](src/lib/data.ts) — update that single file to change anything on the site (bio, experience, projects, skills, etc.).
 
 ## Deployment
 
-The site is deployed on Vercel via GitHub integration — every push to `main` triggers an automatic deployment.
+Linked to Vercel — every push to `main` triggers an automatic deployment.
 
-## Content updates
+To deploy manually:
 
-All personal data (experience, projects, education, testimonials) lives in a single file:
-
-```
-src/lib/data.ts
+```bash
+vercel --prod
 ```
 
-Edit there and changes propagate across the entire site automatically — no need to touch any component files.
+## Contact
 
-## Permissions
-
-You're welcome to use the code or adapt it for your own portfolio. I'd encourage you to make it your own by modifying the design, content, and components.
-
-Please do not present any of my projects, experience, or written content as your own.
+- **Email** — nguyenhao.do@gmail.com
+- **LinkedIn** — [linkedin.com/in/nguyenhaodo](https://linkedin.com/in/nguyenhaodo)
+- **GitHub** — [github.com/haodonguyen](https://github.com/haodonguyen)
