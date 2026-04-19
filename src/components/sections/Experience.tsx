@@ -50,9 +50,9 @@ export default function Experience() {
                       <Image
                         src={job.logo}
                         alt={job.company}
-                        width={48}
-                        height={48}
-                        className="object-contain p-2"
+                        width={64}
+                        height={64}
+                        className="object-cover w-full h-full"
                       />
                     ) : (
                       job.company.slice(0, 2).toUpperCase()
