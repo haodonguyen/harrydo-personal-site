@@ -65,6 +65,10 @@ export default function Testimonial() {
                         ? { background: 'linear-gradient(135deg, #00d4ff, #0096b3)', color: '#06080b' }
                         : t.avatarStyle === 'emerald'
                         ? { background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff' }
+                        : t.avatarStyle === 'amber'
+                        ? { background: 'linear-gradient(135deg, #f59e0b, #d97706)', color: '#fff' }
+                        : t.avatarStyle === 'rose'
+                        ? { background: 'linear-gradient(135deg, #f43f5e, #e11d48)', color: '#fff' }
                         : { background: 'linear-gradient(135deg, #7c3aed, #9333ea)', color: '#fff' }
                     }
                   >

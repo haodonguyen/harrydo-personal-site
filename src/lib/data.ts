@@ -193,6 +193,20 @@ export const testimonials: Testimonial[] = [
     initials: 'DH',
     avatarStyle: 'emerald',
   },
+  {
+    quote: 'Harry stands out for his strong sense of ownership and his ability to quickly adapt in a real project environment. He doesn\'t just focus on getting tasks done but also takes time to understand the bigger picture, asks thoughtful questions, and continuously improves the quality of his work. Technically, he demonstrates solid full-stack capabilities and is especially impressive in how he applies modern tools in a practical and effective way. More importantly, he shows a mindset that every team looks for: reliable, proactive, and always willing to learn. I\'m confident that Harry will be a valuable addition to any engineering team, especially in environments that value both technical depth and growth mindset.',
+    name: 'Jeanie Hoang',
+    role: 'Operation Manager · SEEDSoft',
+    initials: 'JH',
+    avatarStyle: 'amber',
+  },
+  {
+    quote: 'Even as an intern, he showed solid technical grounding — particularly in React, TypeScript, and Node.js — and approached his work with a level of maturity and curiosity that you don\'t always see early in a career. He\'s a quick learner, easy to collaborate with, and genuinely cares about doing things the right way. I\'m confident he\'ll be a great addition to any team he joins.',
+    name: 'Sanh Nguyen',
+    role: 'Technical Consultant · Groove Technology',
+    initials: 'SN',
+    avatarStyle: 'rose',
+  },
 ]
 
 export const navLinks = [
