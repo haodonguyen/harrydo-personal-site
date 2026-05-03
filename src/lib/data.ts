@@ -165,6 +165,7 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   { name: 'Google AI Professional Certificate', year: '2026' },
   { name: 'Claude Code in Action', year: '2026' },
+  { name: 'AWS Cloud Practitioner Essentials', year: '2026' },
   { name: 'Microsoft AI Skills: Building Agents with Copilot Studio', year: '2025' },
   { name: 'Azure DevOps Foundation', year: '2024' },
   { name: 'Google Cloud Computing Foundation', year: '2024' },
