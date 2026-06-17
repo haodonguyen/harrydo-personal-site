@@ -83,6 +83,21 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: 'LeaseMate',
+    stack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Zod', 'UploadThing', 'Vercel'],
+    date: 'June 2026',
+    description:
+      'An Australia-wide lease transfer marketplace that replaces scattered social media posts with structured listings, renter enquiries, owner workflows, and admin moderation.',
+    points: [
+      'Built a full-stack marketplace with public search, listing detail pages, saved listings, enquiries, and owner listing management',
+      'Implemented email/password authentication with server-side sessions plus Prisma-backed PostgreSQL models for users, listings, enquiries, reports, and saved listings',
+      'Added listing creation and editing workflows with photo uploads, readiness indicators, moderation tools, CI checks, unit tests, and Playwright coverage',
+    ],
+    github: 'https://github.com/haodonguyen/lease-mate',
+    demo: 'https://lease-mate-three.vercel.app',
+    featured: true,
+  },
+  {
     title: 'Expense Tracker Finance App',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     date: 'December 2025',
@@ -95,7 +110,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/haodonguyen',
     demo: 'https://expense-tracker-lake-pi.vercel.app/',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Accessibility-Friendly Mobile App',
