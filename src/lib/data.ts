@@ -98,6 +98,22 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'AllyFix — AI Accessibility Auditor',
+    stack: ['TypeScript', 'Next.js', 'Playwright', 'PostgreSQL', 'Redis', 'Vercel AI SDK', 'Docker'],
+    date: 'July 2026',
+    description:
+      'An open-source tool that scans any public web page for WCAG 2.2 issues and uses an LLM to explain each one in plain language and generate a copy-able code fix — going beyond scanners that only report what is broken.',
+    points: [
+      'Architected a pnpm monorepo with a serverless Next.js frontend/API and a separate long-running Playwright + axe-core scanner worker, queued via BullMQ on Redis with PostgreSQL (Drizzle ORM) storage',
+      'Implemented a provider-agnostic LLM layer (Vercel AI SDK; Ollama/Groq/Gemini) with Zod-validated structured output, rate-limit-aware retry backoff, and Redis caching + batching for near-zero cost',
+      'Hardened for production with SSRF protection (covering HTTP redirects and DNS rebinding), per-IP rate limiting, and no persistence of user API keys — plus 37 unit tests',
+      'Set up GitHub Actions CI/CD (lint, type-check, test, build) with a dedicated accessibility gate that scans the app\'s own dashboard with axe and fails the build on any WCAG A/AA violation — deployed live at $0 on Vercel + Neon + Upstash',
+    ],
+    github: 'https://github.com/haodonguyen/ally-fix',
+    demo: 'https://ally-fix-web.vercel.app',
+    featured: false,
+  },
+  {
     title: 'Expense Tracker Finance App',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     date: 'December 2025',
