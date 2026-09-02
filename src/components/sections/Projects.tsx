@@ -49,9 +49,12 @@ export default function Projects() {
                     </p>
                     <ul className="space-y-2 mb-6">
                       {featured.points.map((p, i) => (
-                        <li key={i} className="flex gap-3 text-text-muted text-sm">
+                        <li
+                          key={i}
+                          className="flex gap-3 text-text-muted text-sm [&_strong]:text-white [&_strong]:font-medium"
+                        >
                           <span className="text-accent flex-shrink-0">—</span>
-                          <span>{p}</span>
+                          <span dangerouslySetInnerHTML={{ __html: p }} />
                         </li>
                       ))}
                     </ul>
@@ -115,9 +118,21 @@ export default function Projects() {
                   <span className="text-text-muted text-xs font-mono ml-4 flex-shrink-0">{project.date}</span>
                 </div>
 
-                <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">
+                <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
+
+                <ul className="space-y-2 mb-5 flex-1">
+                  {project.points.map((point, j) => (
+                    <li
+                      key={j}
+                      className="flex gap-2.5 text-text-muted text-[13px] leading-relaxed [&_strong]:text-white [&_strong]:font-medium"
+                    >
+                      <span className="text-accent flex-shrink-0">—</span>
+                      <span dangerouslySetInnerHTML={{ __html: point }} />
+                    </li>
+                  ))}
+                </ul>
 
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.stack.map((tech) => (
